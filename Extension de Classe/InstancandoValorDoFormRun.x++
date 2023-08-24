@@ -1,0 +1,30 @@
+[ExtensionOf(classStr(WHSReleaseLoadToWarehouseController))]
+
+public final class WHSReleaseLoadToWarehouseController_PTR_00007455_EDI_Extension 
+{
+
+
+    public static void main(Args _args)
+    {
+       
+     
+        FormRun formRun = _args.caller() as FormRun;
+
+        FormDataSource whsLoadTable_ds = formRun.dataSource(formDataSourceStr(WHSLoadPlanningWorkbench, WHSLoadTable)) as FormDataSource;
+        WHSLoadTable whsLoadTable = whsLoadTable_ds.cursor();
+
+        int campo = whsLoadTable.CteAmount_PTR;
+
+        if (campo == 0)
+        {
+            throw error("Valor do CTE não pode ser zero ");
+        }
+
+        next main(_args);
+        
+    }
+}
+
+ 
+
+

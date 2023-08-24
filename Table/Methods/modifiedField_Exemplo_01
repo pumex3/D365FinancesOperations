@@ -1,0 +1,39 @@
+public class MatrizCFOPCTe_PTR extends common
+{
+    /// <summary>
+    ///
+    /// </summary>
+    /// <param name = "_fieldId"></param>
+    public void modifiedField(FieldId _fieldId)
+    {
+        super(_fieldId);
+
+        switch (_fieldId)
+        {
+            case fieldNum(MatrizCFOPCTe_PTR, CFOPSaida):
+
+                CFOPTable_BR cFOPTable;
+
+                select firstonly cFOPTable
+                    where cFOPTable.CFOPId == this.CFOPSaida;
+
+                this.DescricaoCFOPSaida = cFOPTable.Name;
+                this.DirecaoCFOPSaida = cFOPTable.Direction;
+                break;
+        }
+
+        switch (_fieldId)
+        {
+            case fieldNum(MatrizCFOPCTe_PTR, CFOPEntrada):
+
+                CFOPTable_BR cFOPTable;
+
+                select firstonly cFOPTable
+                    where cFOPTable.CFOPId == this.CFOPEntrada;
+
+                this.DescricaoCFOPEntrada = cFOPTable.Name;
+                this.DirecaoCFOPEntrada = cFOPTable.Direction;
+                break;
+        }
+    }
+}
